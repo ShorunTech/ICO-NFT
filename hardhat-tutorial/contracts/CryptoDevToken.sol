@@ -16,4 +16,10 @@
       // Owning 1 full token is equivalent to owning (10^18) tokens when you account for the decimal places.
       // More information on this can be found in the Freshman Track Cryptocurrency tutorial.
 
-      
+      uint256 public constant tokensPerNFT = 10 * 10**18;
+      // the max total supply is 10000 for Crypto Dev Tokens
+      uint256 public constant maxTotalSupply = 10000 * 10**18;
+      // CryptoDevsNFT contract instance
+      ICryptoDevs CryptoDevsNFT;
+      // Mapping to keep track of which tokenIds have been claimed
+      mapping(uint256 => bool) public tokenIdsClaimed;
