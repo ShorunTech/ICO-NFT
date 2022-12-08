@@ -23,3 +23,8 @@
       ICryptoDevs CryptoDevsNFT;
       // Mapping to keep track of which tokenIds have been claimed
       mapping(uint256 => bool) public tokenIdsClaimed;
+
+       constructor(address _cryptoDevsContract) ERC20("Crypto Dev Token", "CD") {
+          CryptoDevsNFT = ICryptoDevs(_cryptoDevsContract);
+
+}
