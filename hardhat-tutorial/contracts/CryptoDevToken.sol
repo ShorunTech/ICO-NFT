@@ -27,4 +27,10 @@
        constructor(address _cryptoDevsContract) ERC20("Crypto Dev Token", "CD") {
           CryptoDevsNFT = ICryptoDevs(_cryptoDevsContract);
 
-}
+    }
+
+      /**
+       * @dev Mints `amount` number of CryptoDevTokens
+       * Requirements:
+       * - `msg.value` should be equal or greater than the tokenPrice * amount
+       */
