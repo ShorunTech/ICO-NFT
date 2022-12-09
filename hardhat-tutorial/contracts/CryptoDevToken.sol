@@ -59,3 +59,7 @@
           address sender = msg.sender;
           // Get the number of CryptoDev NFT's held by a given sender address
           uint256 balance = CryptoDevsNFT.balanceOf(sender);
+          // If the balance is zero, revert the transaction
+          require(balance > 0, "You dont own any Crypto Dev NFT's");
+          // amount keeps track of number of unclaimed tokenIds
+          
