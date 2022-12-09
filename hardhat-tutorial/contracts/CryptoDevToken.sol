@@ -48,8 +48,14 @@
           _mint(msg.sender, amountWithDecimals);
       }
 
-      /**
-       * @dev Mints tokens based on the number of NFT's held by the sender
-       * balance of Crypto Dev NFT's owned by the sender should be greater than 0
-       * Tokens should have not been claimed for all the NFTs owned by the sender
-       */
+          /**
+          * @dev Mints tokens based on the number of NFT's held by the sender
+          * Requirements:
+          * balance of Crypto Dev NFT's owned by the sender should be greater than 0
+          * Tokens should have not been claimed for all the NFTs owned by the sender
+          */
+
+         function claim() public {
+          address sender = msg.sender;
+          // Get the number of CryptoDev NFT's held by a given sender address
+          uint256 balance = CryptoDevsNFT.balanceOf(sender);
