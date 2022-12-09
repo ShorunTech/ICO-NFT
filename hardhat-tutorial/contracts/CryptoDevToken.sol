@@ -80,3 +80,9 @@
           // Mint (amount * 10) tokens for each NFT
           _mint(msg.sender, amount * tokensPerNFT);
       }
+
+        /**
+        * @dev withdraws all ETH sent to this contract
+        * Requirements:
+        * wallet connected must be owner's address
+        */
