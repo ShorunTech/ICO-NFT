@@ -72,3 +72,11 @@
                   tokenIdsClaimed[tokenId] = true;
               }
           }
+
+
+          // If all the token Ids have been claimed, revert the transaction;
+          require(amount > 0, "You have already claimed all the tokens");
+          // call the internal function from Openzeppelin's ERC20 contract
+          // Mint (amount * 10) tokens for each NFT
+          _mint(msg.sender, amount * tokensPerNFT);
+      }
