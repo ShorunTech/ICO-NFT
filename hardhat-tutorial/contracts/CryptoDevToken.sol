@@ -34,3 +34,17 @@
        * Requirements:
        * - `msg.value` should be equal or greater than the tokenPrice * amount
        */
+        function mint(uint256 amount) public payable {
+          // the value of ether that should be equal or greater than tokenPrice * amount;
+          uint256 _requiredAmount = tokenPrice * amount;
+          require(msg.value >= _requiredAmount, "Ether sent is incorrect");
+          // total tokens + amount <= 10000, otherwise revert the transaction
+          uint256 amountWithDecimals = amount * 10**18;
+          require(
+              (totalSupply() + amountWithDecimals) <= maxTotalSupply,
+              "Exceeds the max total supply available."
+          );
+          // call the internal function from Openzeppelin's ERC20 contract
+          _mint(msg.sender, amountWithDecimals);
+      }
+
