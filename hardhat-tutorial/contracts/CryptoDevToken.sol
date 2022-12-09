@@ -62,4 +62,13 @@
           // If the balance is zero, revert the transaction
           require(balance > 0, "You dont own any Crypto Dev NFT's");
           // amount keeps track of number of unclaimed tokenIds
-          
+            uint256 amount = 0;
+          // loop over the balance and get the token ID owned by `sender` at a given `index` of its token list.
+          for (uint256 i = 0; i < balance; i++) {
+              uint256 tokenId = CryptoDevsNFT.tokenOfOwnerByIndex(sender, i);
+              // if the tokenId has not been claimed, increase the amount
+              if (!tokenIdsClaimed[tokenId]) {
+                  amount += 1;
+                  tokenIdsClaimed[tokenId] = true;
+              }
+          }
