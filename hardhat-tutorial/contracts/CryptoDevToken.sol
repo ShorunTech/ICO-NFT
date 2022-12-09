@@ -48,3 +48,8 @@
           _mint(msg.sender, amountWithDecimals);
       }
 
+      /**
+       * @dev Mints tokens based on the number of NFT's held by the sender
+       * balance of Crypto Dev NFT's owned by the sender should be greater than 0
+       * Tokens should have not been claimed for all the NFTs owned by the sender
+       */
