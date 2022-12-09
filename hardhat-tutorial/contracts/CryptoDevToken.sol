@@ -86,3 +86,12 @@
         * Requirements:
         * wallet connected must be owner's address
         */
+
+         function withdraw() public onlyOwner {
+        uint256 amount = address(this).balance;
+        require(amount > 0, "Nothing to withdraw; contract balance empty");
+        
+        address _owner = owner();
+        (bool sent, ) = _owner.call{value: amount}("");
+        require(sent, "Failed to send Ether");
+      }
